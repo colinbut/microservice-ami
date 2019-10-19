@@ -1,11 +1,11 @@
 pipeline {
-    agent {
-        any
-    }
+    agent any
 
     stages {
         stage ('validate template') {
-            sh 'packer validate -color=false ami.json'
+            steps {
+                sh 'packer validate -color=false ami.json'
+            }
         }
     }
 
