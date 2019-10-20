@@ -12,7 +12,7 @@
             "instance_type": "t2.micro",
             "source_ami": "",
             "ssh_username": "ec2-user",
-            "ami_name": "microservice-nodejs-ami-cb",
+            "ami_name": "microservice-docker-ami-cb",
             "ami_description": ""
         }
     ],
