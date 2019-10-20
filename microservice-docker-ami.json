@@ -20,8 +20,7 @@
         {
             "type": "shell",
             "inline": [
-                "sudo curl --silent --location https://rpm.nodesource.com/setup_10.x | bash - ",
-                "sudo yum install -y nodejs"
+                "sudo amazon-linux-extras install docker "
             ]
         }
     ]
