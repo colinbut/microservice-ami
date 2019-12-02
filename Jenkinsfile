@@ -4,15 +4,18 @@ pipeline {
             image 'packer-build'
         }
     }
-
     stages {
         stage ('validate template') {
             steps {
-                sh 'packer validate microservice-java-ami.json'
+                script {
+                    def files = findFiles(glob: '*-ami.json')
+                    for (int i = 0; i < files.size(); i++) {
+                        sh 'packer validate ${files[i]}'
+                    }
+                }
             }
         }
     }
-
     post {
         success {
             echo "====++++Build Success!++++===="
