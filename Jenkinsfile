@@ -10,7 +10,7 @@ pipeline {
                 script {
                     def files = findFiles(glob: '*-ami.json')
                     for (int i = 0; i < files.size(); i++) {
-                        sh 'packer validate ${files[i]}'
+                        sh "packer validate ${files[i]}"
                     }
                 }
             }
