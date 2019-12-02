@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage ('validate template') {
             steps {
-                sh 'packer validate -color=false microservice-java-ami.json'
+                sh 'packer validate microservice-java-ami.json'
             }
         }
     }
