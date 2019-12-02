@@ -10,7 +10,7 @@
             "secret_key": "{{user `aws_secret_key`}}",
             "region": "eu-west-2",
             "instance_type": "t2.micro",
-            "source_ami": "",
+            "source_ami": "ami-00a1270ce1e007c27",
             "ssh_username": "ec2-user",
             "ami_name": "microservice-nodejs-ami-cb",
             "ami_description": ""
