@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'packer-build'
+            image 'packer-build:latest'
         }
     }
     stages {
