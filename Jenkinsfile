@@ -15,6 +15,13 @@ pipeline {
                 }
             }
         }
+        stage ('build template') {
+            steps {
+                when ('master') {
+                    sh 'packer build microservice-docker-ami.json'
+                }
+            }
+        }
     }
     post {
         success {
