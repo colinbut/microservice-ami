@@ -16,10 +16,11 @@ pipeline {
             }
         }
         stage ('build template') {
+            when { 
+                branch 'master' 
+            }
             steps {
-                when ('master') {
-                    sh 'packer build microservice-docker-ami.json'
-                }
+                sh 'packer build microservice-docker-ami.json'
             }
         }
     }
