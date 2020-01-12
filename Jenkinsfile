@@ -19,7 +19,7 @@ pipeline {
                 branch 'master' 
             }
             steps {
-                sh 'packer build microservice-docker-ami.json'
+                sh "packer build microservice-${env.AMI_TO_BUILD}-ami.json"
             }
         }
     }
