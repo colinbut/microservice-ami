@@ -19,7 +19,14 @@ pipeline {
                 branch 'master' 
             }
             steps {
-                sh "packer build microservice-${env.AMI_TO_BUILD}-ami.json"
+                withCredentials([[
+                    $class: 'AmazonWebServicesCredentialsBinding',
+                    credentialsId: 'AWS_CREDENTIALS',
+                    accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+                    secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
+                ]]) {
+                    sh "packer build -var aws_access_key=${AWS_ACCESS_KEY_ID} -var aws_secret_key=${AWS_SECRET_ACCESS_KEY} microservice-${env.AMI_TO_BUILD}-ami.json"
+                }
             }
         }
     }
