@@ -11,7 +11,7 @@ pipeline {
 
                     env.AMI_TO_BUILD = input message: 'Choose AMI to build', ok: 'Build!',
                                         parameters: [choice(name:'AMI_TO_BUILD', choices: 'docker\njava\nnodejs', description:'Choose the AMI to build:')]
-                    sh "packer validate ${env.AMI_TO_BUILD}"
+                    sh "packer validate microservice-${env.AMI_TO_BUILD}-ami.json"
                 }
             }
         }
