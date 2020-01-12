@@ -9,7 +9,7 @@ pipeline {
             steps {
                 script {
 
-                    env.AMI_TO_BUILD = input.message: 'Choose AMI to build', ok: 'Release!',
+                    env.AMI_TO_BUILD = input message: 'Choose AMI to build', ok: 'Release!',
                                         parameters: [choice(name:'AMI_TO_BUILD', choices: 'docker/java/nodejs', description:'Choose the AMI to build:')]
 
                     sh 'packer validate ${env.AMI_TO_BUILD}'
